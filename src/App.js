@@ -1,6 +1,14 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import {
+  TextField,
+  Button,
+  Checkbox,
+  Radio,
+  FormControlLabel
+} from "@material-ui/core";
 import * as Yup from "yup";
+import "./App.css";
 
 export default class App extends React.Component {
   render() {
@@ -38,12 +46,12 @@ export default class App extends React.Component {
           <Form>
             <div className="form-row">
               <div class="form-group col">
-                <label>Title</label>
                 <Field
+                  placeholder="Title"
                   name="title"
-                  as="select"
+                  as={TextField}
+                  error={errors.title}
                   className={
-                    "form-control" +
                     (errors.title && touched.title ? " is-invalid" : "")
                   }
                 >
@@ -56,7 +64,7 @@ export default class App extends React.Component {
                 <ErrorMessage
                   name="title"
                   component="div"
-                  className="invalid-feedback"
+                  className="custom-invalid-feedback"
                 />
               </div>
               <div className="form-group col-5">

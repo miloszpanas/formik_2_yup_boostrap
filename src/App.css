@@ -17,8 +17,10 @@
   color:red;
 }
 
-.invalid-feedback {
+.custom-invalid-feedback {
   color: red;
+  /* margin-left: 20px; */
+  font-size: 12px;
 }
 
 .App-header {
