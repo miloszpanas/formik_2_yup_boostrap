@@ -45,37 +45,25 @@ export default class App extends React.Component {
         {({ errors, status, touched }) => (
           <Form>
             <div className="form-row">
-              <div class="form-group col">
-                <Field
-                  placeholder="Title"
-                  name="title"
-                  as={TextField}
-                  error={errors.title}
-                  className={
-                    (errors.title && touched.title ? " is-invalid" : "")
-                  }
-                >
+            <div class="form-group col">
+              <label>Title</label>
+              <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
                   <option value=""></option>
                   <option value="Mr">Mr</option>
                   <option value="Mrs">Mrs</option>
                   <option value="Miss">Miss</option>
                   <option value="Ms">Ms</option>
-                </Field>
-                <ErrorMessage
-                  name="title"
-                  component="div"
-                  className="custom-invalid-feedback"
-                />
+              </Field>
+              <ErrorMessage name="title" component="div" className="invalid-feedback" />
               </div>
               <div className="form-group col-5">
                 <label htmlFor="firstName">First Name</label>
                 <Field
                   name="firstName"
+                  as={TextField}
                   type="text"
-                  className={
-                    "form-control" +
-                    (errors.firstName && touched.firstName ? " is-invalid" : "")
-                  }
+                  error={errors.firstName}
+                  className={`form-control ${(errors.firstName && touched.firstName) ? " is-invalid" : ""}`}
                 />
                 <ErrorMessage
                   name="firstName"
